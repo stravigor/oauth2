@@ -1,0 +1,33 @@
+{
+  "name": "@stravigor/oauth2",
+  "version": "0.5.6",
+  "type": "module",
+  "description": "OAuth2 server implementation for the Strav framework",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*.ts"
+  },
+  "strav": {
+    "commands": "src/commands"
+  },
+  "files": [
+    "src/",
+    "stubs/",
+    "package.json",
+    "tsconfig.json"
+  ],
+  "peerDependencies": {
+    "@stravigor/kernel": "workspace:*",
+    "@stravigor/http": "workspace:*",
+    "@stravigor/database": "workspace:*",
+    "@stravigor/cli": "workspace:*"
+  },
+  "scripts": {
+    "test": "bun test tests/",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "commander": "^14.0.3"
+  }
+}
