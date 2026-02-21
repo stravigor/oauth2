@@ -60,11 +60,13 @@ One method is optional:
 
 ### 2. Register the provider
 
+Add to `start/providers.ts`:
+
 ```typescript
 import { OAuth2Provider } from '@stravigor/oauth2'
 import actions from './actions/oauth2'
 
-app.use(new OAuth2Provider(actions))
+new OAuth2Provider(actions),
 ```
 
 The `OAuth2Provider` depends on: `auth`, `session`, `encryption`, `database`. It registers `OAuth2Manager` as a singleton, creates the database tables, and registers all routes automatically.
@@ -624,8 +626,8 @@ import { compose } from '@stravigor/core/http/middleware'
 import { OAuth2Provider, oauth, scopes, oauth2 } from '@stravigor/oauth2'
 import actions from './actions/oauth2'
 
-// Register the provider
-app.use(new OAuth2Provider(actions))
+// In start/providers.ts
+new OAuth2Provider(actions),
 
 // Define scopes (also configurable in config/oauth2.ts)
 oauth2.defineScopes({

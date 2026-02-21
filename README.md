@@ -23,10 +23,12 @@ const actions = defineActions<User>({
 })
 ```
 
+Add to `start/providers.ts`:
+
 ```ts
 import { OAuth2Provider } from '@stravigor/oauth2'
 
-app.use(new OAuth2Provider(actions))
+new OAuth2Provider(actions),
 ```
 
 ```bash
